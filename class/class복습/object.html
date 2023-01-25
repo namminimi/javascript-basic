@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+</head>
+<body>
+    <script>
+        //cat 객체 생성하기
+        let abc = "weight";
+        let cat1 = {
+            name : "콩이",
+            family: "코리안 숏헤어",
+            [abc]: 1000,
+        }
+        console.log(cat1)
+        let key = prompt("알고싶은 key를 입력하세요", "name");
+        console.log(cat1['name']);
+        //객체의 속성 값에 접근
+        console.log(cat1.aaa);
+        //console.log(cat1[aaa]);
+
+        function makeUser(name, age) {
+            //단축 프로퍼티
+            return {
+                name,     //name: name
+                age       //age: age
+            }
+        }
+
+        let user = makeUser("green", 30);
+        console.log(user)
+
+        //in연산자 문법 "key" in object
+        console.log("name" in user) //ture
+        console.log("weight" in user) //false
+
+        //for ...in 문 객체의 모든 키를 순회
+        for(key in user) {
+            console.log(key)
+            console.log(user[key])
+        }
+
+        /* .객체복사 */
+        console.log(user[key])
+        console.log(user[key])
+        console.log("str1")
+        console.log("str2")
+        let student1 = {
+            name: "김민준",
+            age: 25
+        }
+        /* console.log(student1)
+        //console.log(student2)
+        student2.name = "고요한"
+        console.log(student1)
+        console.log(student2) */
+
+       /*  let a = {};
+        let b = a; /* 창조에 의한 복사 
+        console.log(a==b);
+        console.log(a===b);
+        let c = {};
+        let d = {};
+        console.log(c==d);
+        console.log(c===d); */
+
+        /* let studentClone= {};
+        for(let key in student1) {
+            studentClone[key] = student1[key]
+        } */
+
+        /* console.log(student1)
+        console.log(studentClone)
+        student1.name = "김동현"
+        console.log(student1)
+        console.log(studentClone) */
+
+        let studentClone2 = {
+            ...student1,
+            name :"김그린"
+        }
+
+        /* console.log(studentClone2);
+        student1.name = "이재훈";
+        console.log(student1);
+        console.log(studentClone2); */
+
+        //object.assigh({}, 복사할 객체)
+        let studentClone3 = Object.assign({}, student1); //첫번째 대상 객체, 두번째 복사객체  깊은 복사
+        console.log(studentClone3);
+
+        let user2 = {
+            name: "남민섭",
+            sizes: {
+                height: 180,
+                weight: 72
+            }
+        }
+        let clone = Object.assign({}, user2);
+        let clone2 = {
+            ...user2,
+            sizes: {
+                ...user2.sizes
+            }
+        }
+
+        let clone3 = _.cloneDeep(user2); // 객체 참조 얕은복사 
+        
+        user2.sizes.height = 178;
+        console.log(user2);
+        console.log(clone);
+        console.log(clone2);
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //object객체
+        //속성과 메서드를 가지고 있는 데이터 타입
+        //자바스크립트 기본타입
+        //number, string, boolean, null, undefined
+        let num1 = 10;
+        let str1 = "green"
+        let boolean1 = true;
+        //object, array
+        //{key: value, key2: value2} 프로퍼티
+        //접근방법
+        //object.key1, object['key1']
+        let userJob =  "job";
+        let user = {
+            name: "green",
+            age: 30,
+            nick: "abc",
+            [userJob] : "강사"
+            //키 이름으로 변수를 적용하고 싶을때 대괄호 사용하면 됨
+        }
+
+        let user2 = {
+            name: "green",
+            age: 30,
+            nick: "abc",
+            userJob: "강사"
+        }
+
+        console.log(user);
+        console.log(user2);
+
+        let user3 = {
+            ...user2,
+            name: "blue"
+        } 
+        //불변성을 지켜주기위해서 스프레드를 사용함
+
+        console.log(user3);
+        /* let name = user2.name;
+        let age = user2.age; */
+        let {name, age} = user2 //구조분해 할당
+        console.log(name,age);
+
+        let {name:name3, age:age3} = user2;  //키의 이름이 다를경우 지정해줘야함
+        console.log(name3);
+
+        
+
+    </script>
+</body>
+</html>
